@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/grandcat/zeroconf v1.0.0
 	github.com/miekg/dns v1.1.54
-	go.codecomet.dev/core v0.0.0-20230505212359-946657eb5e0f
+	go.codecomet.dev/core v0.0.0-20230511064101-cf29f4227550
 	golang.org/x/net v0.10.0
 )
 
