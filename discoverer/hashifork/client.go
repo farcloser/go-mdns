@@ -17,8 +17,10 @@ import (
 	"golang.org/x/net/ipv4"
 )
 
-var errFailedToBindMulticast = errors.New("failed to bind to any multicast udp port")
-var errFailedToBindUnicast = errors.New("failed to bind to any unicast udp port")
+var (
+	errFailedToBindMulticast = errors.New("failed to bind to any multicast udp port")
+	errFailedToBindUnicast   = errors.New("failed to bind to any unicast udp port")
+)
 
 const bufferSize = 65536
 
