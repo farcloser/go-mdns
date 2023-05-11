@@ -1,0 +1,33 @@
+linters-settings:
+  staticcheck:
+    checks:
+      - "all"
+
+linters:
+  disable-all: false
+  enable-all: true
+  disable:
+    # Deprecated or auto disabled for lack of generics support
+    - deadcode
+    - scopelint
+    - exhaustivestruct
+    - maligned
+    - interfacer
+    - varcheck
+    - golint
+    - ifshort
+    - structcheck
+    - nosnakecase
+    - rowserrcheck
+    - sqlclosecheck
+    - structcheck
+    - wastedassign
+    # Too annoying
+    - exhaustruct # this is fine without, usually
+    - funlen # somewhat ridiculous
+    - cyclop # who cares! :D
+    # Not now
+    - paralleltest
+    # Temporary out
+    - wrapcheck
+    - musttag
