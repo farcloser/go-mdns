@@ -18,8 +18,8 @@ import (
 )
 
 var (
-	errFailedToBindMulticast = errors.New("failed to bind to any multicast udp port")
-	errFailedToBindUnicast   = errors.New("failed to bind to any unicast udp port")
+	ErrFailedToBindMulticast = errors.New("failed to bind to any multicast udp port")
+	ErrFailedToBindUnicast   = errors.New("failed to bind to any unicast udp port")
 )
 
 const bufferSize = 65536
@@ -123,7 +123,6 @@ type client struct {
 // NewClient creates a new mdns Client that can be used to query
 // for records.
 func newClient() (*client, error) {
-	//nolint:godox
 	// TODO(reddaly): At least attempt to bind to the port required in the spec.
 	// Create a IPv4 listener
 	var uconn4 *net.UDPConn
@@ -138,7 +137,7 @@ func newClient() (*client, error) {
 	}
 
 	if uconn4 == nil {
-		return nil, errFailedToBindUnicast
+		return nil, ErrFailedToBindUnicast
 	}
 
 	mconn4, err = net.ListenMulticastUDP("udp4", nil, ipv4Addr)
@@ -147,7 +146,7 @@ func newClient() (*client, error) {
 	}
 
 	if mconn4 == nil {
-		return nil, errFailedToBindMulticast
+		return nil, ErrFailedToBindMulticast
 	}
 
 	cli := &client{
@@ -189,11 +188,8 @@ func (c *client) setInterface(iface *net.Interface) error {
 	}
 
 	packConn = ipv4.NewPacketConn(c.ipv4MulticastConn)
-	if err := packConn.SetMulticastInterface(iface); err != nil {
-		return err
-	}
 
-	return nil
+	return packConn.SetMulticastInterface(iface)
 }
 
 // query is used to perform a lookup and stream results.
@@ -237,7 +233,6 @@ func (c *client) query(params *QueryParam) error { //nolint:gocognit
 			var inp *ServiceEntry
 
 			for _, answer := range append(resp.Answer, resp.Extra...) {
-				//nolint:godox
 				// TODO(reddaly): Check that response corresponds to serviceAddr?
 				switch rrRecord := answer.(type) {
 				case *dns.PTR:

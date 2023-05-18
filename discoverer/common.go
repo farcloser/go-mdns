@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net"
 	"os"
+	"path"
 	"sync"
 	"time"
 
@@ -44,7 +45,7 @@ func New(location string) *Discoverer {
 
 		fileContent, err := os.ReadFile(location)
 		if err != nil {
-			log.Error().Str("location", location).Msg("Failed reading cache file. There will be no persistence.")
+			log.Warn().Str("location", location).Msg("Failed reading existing cache file. Starting from scratch.")
 		} else {
 			err = json.Unmarshal(fileContent, &dvr.Table)
 			if err != nil {
@@ -79,8 +80,15 @@ func (dv *Discoverer) Flush() {
 	dv.mu.Lock()
 	defer dv.mu.Unlock()
 
-	err := filesystem.WriteFile(dv.Storage, res, 0o600) //nolint:gomnd
+	err := os.MkdirAll(path.Dir(dv.Storage), filesystem.DirPermissionsPrivate)
 	if err != nil {
-		log.Error().Str("location", dv.Storage).Msg("Failed writing cache file!")
+		log.Error().Str("location", dv.Storage).Msg("Failed creating directory. No persistence!")
+
+		return
+	}
+
+	err = filesystem.WriteFile(dv.Storage, res, filesystem.FilePermissionsPrivate)
+	if err != nil {
+		log.Error().Str("location", dv.Storage).Msg("Failed writing cache file. No persistence!")
 	}
 }

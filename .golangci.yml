@@ -26,6 +26,7 @@ linters:
     - exhaustruct # this is fine without, usually
     - funlen # somewhat ridiculous
     - cyclop # who cares! :D
+    - godox # just leave it alone
     # Not now
     - paralleltest
     # Temporary out
