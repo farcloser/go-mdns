@@ -1,8 +1,3 @@
-linters-settings:
-  staticcheck:
-    checks:
-      - "all"
-
 linters:
   disable-all: false
   enable-all: true
@@ -18,10 +13,7 @@ linters:
     - ifshort
     - structcheck
     - nosnakecase
-    - rowserrcheck
-    - sqlclosecheck
-    - structcheck
-    - wastedassign
+
     # Too annoying
     - exhaustruct # this is fine without, usually
     - funlen # somewhat ridiculous
@@ -29,6 +21,25 @@ linters:
     - godox # just leave it alone
     # Not now
     - paralleltest
-    # Temporary out
+    # TODO(apostasie) Temporary out until we wrap up all of them
     - wrapcheck
-    - musttag
+
+linters-settings:
+  staticcheck:
+    checks:
+      - "all"
+
+  depguard:
+    rules:
+      main:
+        files:
+          - "$all"
+        allow:
+          - $gostd
+          - go.farcloser.world
+          - github.com/grandcat/zeroconf
+          - github.com/miekg/dns
+          - golang.org/x/net/ipv4
+        deny:
+          - pkg: "github.com/pkg/errors"
+            desc: Should be replaced by standard lib errors package

@@ -3,7 +3,7 @@ package announcer
 import (
 	"net"
 
-	"go.codecomet.dev/core/log"
+	"go.farcloser.world/core/log"
 )
 
 func listIPv4() ([]net.Interface, []net.Addr) {

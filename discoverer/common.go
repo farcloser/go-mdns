@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"go.codecomet.dev/core/filesystem"
-	"go.codecomet.dev/core/log"
+	"go.farcloser.world/core/filesystem"
+	"go.farcloser.world/core/log"
 )
 
 const expiration = 600 * time.Second
@@ -56,7 +56,7 @@ func New(location string) *Discoverer {
 				now := time.Now()
 				for k, v := range dvr.Table {
 					if now.Sub(v.TimeStamp) > expiration {
-						log.Debug().Msgf("Ignoring expired entry %s", v)
+						log.Debug().Msgf("Ignoring expired entry %s %s", v.Service, v.Name)
 						delete(dvr.Table, k)
 					}
 				}
@@ -71,7 +71,7 @@ func (dv *Discoverer) Flush() {
 	now := time.Now()
 	for k, v := range dv.Table {
 		if now.Sub(v.TimeStamp) > expiration {
-			log.Debug().Msgf("Deleting expired entry %s", v)
+			log.Debug().Msgf("Deleting expired entry %s %s", v.Service, v.Name)
 			delete(dv.Table, k)
 		}
 	}

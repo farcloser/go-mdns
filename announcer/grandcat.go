@@ -7,7 +7,7 @@ import (
 	"syscall"
 
 	"github.com/grandcat/zeroconf"
-	"go.codecomet.dev/core/log"
+	"go.farcloser.world/core/log"
 )
 
 func Announce(name string, stype string, host string, port int, txt []string) {

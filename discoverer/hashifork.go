@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"go.codecomet.dev/core/log"
-	"go.codecomet.dev/mdns/discoverer/hashifork"
+	"go.farcloser.world/core/log"
+	"go.farcloser.world/mdns/discoverer/hashifork"
 )
 
 const maxServiceEntries = 32

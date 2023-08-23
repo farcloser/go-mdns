@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/miekg/dns"
-	"go.codecomet.dev/core/log"
+	"go.farcloser.world/core/log"
 	"golang.org/x/net/ipv4"
 )
 
