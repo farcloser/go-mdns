@@ -21,6 +21,10 @@ func Announce(name string, stype string, host string, port int, txt []string) {
 	// server, err := zeroconf.Register(name, stype, "local.", port, txt, nil)
 	interfaces, _ := listIPv4()
 
+	// XXX it seems like grandcat will not announce properly if there is no record at all
+	if len(txt) == 0 {
+		txt = []string{""}
+	}
 	server, err := zeroconf.RegisterProxy(name, stype, "local.", port, host, nil, txt, interfaces)
 	if err != nil {
 		panic(err)
