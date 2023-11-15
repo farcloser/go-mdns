@@ -25,6 +25,7 @@ func Announce(name string, stype string, host string, port int, txt []string) {
 	if len(txt) == 0 {
 		txt = []string{""}
 	}
+
 	server, err := zeroconf.RegisterProxy(name, stype, "local.", port, host, nil, txt, interfaces)
 	if err != nil {
 		panic(err)
