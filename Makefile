@@ -6,3 +6,6 @@ lint-fix:
 
 tidy:
 	go mod tidy
+
+up:
+	go get -u ./...
