@@ -18,8 +18,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/rs/xid v1.5.0/go.mod h1:trrq9SKmegXys3aeAKXMUTdJsYXVwGY3RLcfgqegfbg=
 github.com/rs/zerolog v1.33.0 h1:1cU2KZkvPxNyfgEmhHAz/1A9Bz+llsdYzklWFzgp0r8=
 github.com/rs/zerolog v1.33.0/go.mod h1:/7mN4D5sKwJLZQ2b/znpjC3/GQWY/xaDXUM0kKWRHss=
-go.farcloser.world/core v0.0.0-20240301223023-2c1fae0ba338 h1:rztKrpnxEnCwtcKpjEpEafPc0OHxJ3nK+n57shcBSTM=
-go.farcloser.world/core v0.0.0-20240301223023-2c1fae0ba338/go.mod h1:3jDCQHhTm3KZQI6su9FfDcwZ3Baj9lcDAYdZ40RUQkE=
+go.farcloser.world/core v0.0.0-20240710035151-5beaaff2d1bd h1:ST4AUAySVqKEeHuJrIhdmpa6mJkq0OwvJeAqXDoYOoE=
+go.farcloser.world/core v0.0.0-20240710035151-5beaaff2d1bd/go.mod h1:G9BEW2Ssb6yrJgQBaFQt4yijVXIRrnvrRoHZZ8frOMU=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/mod v0.1.1-0.20191105210325-c90efee705ee/go.mod h1:QqPTAvyqsEbceGzBzNggFXnrqF1CaUcvgkdR5Ot7KZg=

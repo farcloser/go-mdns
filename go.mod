@@ -5,7 +5,7 @@ go 1.21.0
 require (
 	github.com/grandcat/zeroconf v1.0.0
 	github.com/miekg/dns v1.1.61
-	go.farcloser.world/core v0.0.0-20240301223023-2c1fae0ba338
+	go.farcloser.world/core v0.0.0-20240710035151-5beaaff2d1bd
 	golang.org/x/net v0.27.0
 )
 
